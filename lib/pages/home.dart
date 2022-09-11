@@ -43,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
             ListTile(
-              title: Text('Stok'),
+              title: Text('Stock'),
               leading: Icon(Icons.list),
               onTap: () {
                 _selectIndex(0);
