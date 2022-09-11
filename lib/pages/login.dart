@@ -15,6 +15,23 @@ class _LoginScreenState extends State<LoginScreen> {
   submit() {
     if (_keyForm.currentState!.validate()) {
       _keyForm.currentState!.save();
+
+      // UserAPI userAPI = UserAPI();
+      // EasyLoading.show(status: 'loading...');
+      // Login? login = await userAPI.login(username: username, password: password);
+      // if (login == null) {
+      //   SnackBarHelper.show(
+      //       context: context, msg: 'Invalid user', color: Colors.red);
+      //   EasyLoading.dismiss();
+      //   return;
+      // }
+      // userAPI.storeToken(token: login.accessToken);
+      // EasyLoading.dismiss();
+      // SnackBarHelper.show(
+      //     context: context, msg: 'Welcome to Inventory', color: Colors.green);
+      // Navigator.pushNamed(context, '/home');
+      //}
+
     }
   }
 

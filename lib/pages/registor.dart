@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../networks/userAPI.dart';
+
 class RegistorScreen extends StatefulWidget {
   const RegistorScreen({Key? key}) : super(key: key);
 
@@ -19,10 +21,16 @@ class _RegistorScreenState extends State<RegistorScreen> {
     return null;
   }
 
-  submit() {
+  submit() async {
     if (_key.currentState!.validate()) {
       _key.currentState!.save();
       print('User = ${username} password = ${password}');
+      UserAPI userAPI = UserAPI();
+      String msg = await userAPI.register(
+        username: username,
+        password: password,
+      );
+      print(msg);
     }
   }
 

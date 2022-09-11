@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import '../model/login.dart';
 
 class UserAPI {
   String url = 'https://inventory-workshop-2022.herokuapp.com';
@@ -22,5 +23,26 @@ class UserAPI {
     } else {
       return 'Somthing went wrong';
     }
+  }
+
+  Future<Login?> login(
+      {required String username, required String password}) async {
+    var urlApi = Uri.parse('$url/token');
+    final response = await http.post(urlApi,
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        encoding: Encoding.getByName('utf-8'),
+        body: {
+          'username': username,
+          'password': password,
+        });
+    if (response.statusCode == 200) {
+      final result = jsonDecode(response.body);
+      var data = Login.fromJson(result);
+      print(data.accessToken);
+      return data;
+    }
+    return null;
   }
 }
