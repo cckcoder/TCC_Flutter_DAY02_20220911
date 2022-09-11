@@ -1,3 +1,4 @@
+import 'package:day02/pages/home.dart';
 import 'package:day02/pages/login.dart';
 import 'package:day02/pages/registor.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       routes: {
+        '/home': (context) => const HomeScreen(),
         '/register': (context) => const RegistorScreen(),
       },
       home: FutureBuilder(

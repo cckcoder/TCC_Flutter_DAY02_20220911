@@ -1,6 +1,7 @@
 import 'package:day02/networks/userAPI.dart';
 import 'package:flutter/material.dart';
 
+import '../Constance.dart';
 import '../model/login.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -28,6 +29,8 @@ class _LoginScreenState extends State<LoginScreen> {
         return;
       }
       print('Token = ${loginmodel!.accessToken}');
+      TOKEN_LOGIN = loginmodel!.accessToken;
+      Navigator.pushNamed(context, '/home');
     }
   }
 
