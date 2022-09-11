@@ -1,3 +1,5 @@
+import 'package:day02/pages/addform.dart';
+import 'package:day02/pages/editform.dart';
 import 'package:day02/pages/home.dart';
 import 'package:day02/pages/login.dart';
 import 'package:day02/pages/registor.dart';
@@ -16,6 +18,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/home': (context) => const HomeScreen(),
         '/register': (context) => const RegistorScreen(),
+        '/addForm': (context) => const AddForm(),
+        '/editForm': (context) => const EditForm()
       },
       home: FutureBuilder(
         builder: (context, snapshot) {

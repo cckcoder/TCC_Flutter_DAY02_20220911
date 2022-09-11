@@ -1,3 +1,5 @@
+import 'package:day02/pages/stockform.dart';
+import 'package:day02/pages/stocklist.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -10,9 +12,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   int _selectIdex = 1;
   List<Widget> pages = [
-    Center(
-      child: Text("stock"),
-    ),
+    StockList(),
     Center(
       child: Text("logout"),
     )
