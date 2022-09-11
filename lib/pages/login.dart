@@ -1,4 +1,7 @@
+import 'package:day02/networks/userAPI.dart';
 import 'package:flutter/material.dart';
+
+import '../model/login.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -12,26 +15,19 @@ class _LoginScreenState extends State<LoginScreen> {
   String username = '';
   String password = '';
 
-  submit() {
+  submit() async {
     if (_keyForm.currentState!.validate()) {
       _keyForm.currentState!.save();
-
-      // UserAPI userAPI = UserAPI();
-      // EasyLoading.show(status: 'loading...');
-      // Login? login = await userAPI.login(username: username, password: password);
-      // if (login == null) {
-      //   SnackBarHelper.show(
-      //       context: context, msg: 'Invalid user', color: Colors.red);
-      //   EasyLoading.dismiss();
-      //   return;
-      // }
-      // userAPI.storeToken(token: login.accessToken);
-      // EasyLoading.dismiss();
-      // SnackBarHelper.show(
-      //     context: context, msg: 'Welcome to Inventory', color: Colors.green);
-      // Navigator.pushNamed(context, '/home');
-      //}
-
+      UserAPI userAPI = UserAPI();
+      Login? loginmodel = await userAPI.login(
+        username: username,
+        password: password,
+      );
+      if (loginmodel == null) {
+        print('Invalid user');
+        return;
+      }
+      print('Token = ${loginmodel!.accessToken}');
     }
   }
 

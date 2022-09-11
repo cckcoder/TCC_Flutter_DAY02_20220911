@@ -25,8 +25,10 @@ class UserAPI {
     }
   }
 
-  Future<Login?> login(
-      {required String username, required String password}) async {
+  Future<Login?> login({
+    required String username,
+    required String password,
+  }) async {
     var urlApi = Uri.parse('$url/token');
     final response = await http.post(urlApi,
         headers: {
